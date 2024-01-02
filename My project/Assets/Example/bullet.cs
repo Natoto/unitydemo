@@ -21,5 +21,6 @@ public class bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(" 发生了碰撞xx");
+        Destroy(this.gameObject);
     }
 }

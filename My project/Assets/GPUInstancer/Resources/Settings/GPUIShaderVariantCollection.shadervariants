@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GPUIShaderVariantCollection
+  m_Shaders:
+  - first: {fileID: 4800000, guid: 8a4d727fcfc589e4bb076bd5279e5201, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: a1fe6b00539636f49bae5f911c8ccc55, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 8c09ceafd07c22648a98a34fdfcbe766, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 1a6ceac7f4c639b4096c21f11e4e7a56, type: 3}
+    second:
+      variants: []
+  - first: {fileID: 4800000, guid: 998acd8de1cbc7540833e565fda1154d, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: b1a05ad601a72334d8529afd35a4e2c8, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d52a38c4e70daf4449eaab298ba27ce6, type: 3}
+    second:
+      variants: []
+  - first: {fileID: 4800000, guid: b018d5a5e2799dd469d0d9f2474d499c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _EMISSION _NORMALMAP
+        passType: 0
+      - keywords: _NORMALMAP
+        passType: 0
+  - first: {fileID: 4800000, guid: d2444dc4801b96a4fa0145697bc5d62b, type: 3}
+    second:
+      variants:
+      - keywords: _USE_GRADIENT_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 46f84f9bcb5a61041915acc18a0cd44b, type: 3}
+    second:
+      variants:
+      - keywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
+        passType: 0
+  - first: {fileID: 4800000, guid: db7dab1ed4b29e84ca7469cf91480030, type: 3}
+    second:
+      variants:
+      - keywords: _EMISSION
+        passType: 0
+      - keywords: _EMISSION _NORMALMAP _SPECGLOSSMAP
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: 13567c7704562ff4188beb583474bbb9, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: cac414cce78f3474d9280786e96c443f, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d6f514b2571b644d090b5f6ff4c85c7e, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: ec5943f5796d543c4a5267b289b33443, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0

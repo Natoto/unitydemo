@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d8588b9b4d4e344b3c6c8da8806a1c, type: 3}
+  m_Name: GPUInstancerShaderBindings
+  m_EditorClassIdentifier: 
+  shaderInstances:
+  - name: GPUInstancer/ColorVariationShader
+    instancedShader: {fileID: 4800000, guid: 8c09ceafd07c22648a98a34fdfcbe766, type: 3}
+    modifiedDate: 12/21/2023 20:37:21.598
+    isOriginalInstanced: 1
+    extensionCode: 
+  - name: hb/InstanceColorSurf
+    instancedShader: {fileID: 4800000, guid: cac414cce78f3474d9280786e96c443f, type: 3}
+    modifiedDate: 12/29/2023 09:13:39.592
+    isOriginalInstanced: 0
+    extensionCode: 
+  - name: GPUInstancer/hb/InstanceColorSurf
+    instancedShader: {fileID: 4800000, guid: cac414cce78f3474d9280786e96c443f, type: 3}
+    modifiedDate: 12/29/2023 09:07:38.097
+    isOriginalInstanced: 1
+    extensionCode: 
+  - name: hb/TestGPUI
+    instancedShader: {fileID: 4800000, guid: d6f514b2571b644d090b5f6ff4c85c7e, type: 3}
+    modifiedDate: 12/29/2023 09:15:52.764
+    isOriginalInstanced: 1
+    extensionCode: 
+  - name: GPUInstancer/AsteroidHaze
+    instancedShader: {fileID: 4800000, guid: a1fe6b00539636f49bae5f911c8ccc55, type: 3}
+    modifiedDate: 12/29/2023 15:51:11.822
+    isOriginalInstanced: 1
+    extensionCode: 
+  - name: Shader Graphs/GPUIUVVariationGraph
+    instancedShader: {fileID: -6465566751694194690, guid: 13567c7704562ff4188beb583474bbb9, type: 3}
+    modifiedDate: 12/29/2023 16:21:45.036
+    isOriginalInstanced: 1
+    extensionCode: 
+  - name: GPUInstancer/CrowdAnimations/Custom/Dissolve
+    instancedShader: {fileID: 4800000, guid: d2444dc4801b96a4fa0145697bc5d62b, type: 3}
+    modifiedDate: 12/29/2023 16:27:47.769
+    isOriginalInstanced: 1
+    extensionCode: CROWD_ANIM
+  - name: GPUInstancer/ImpactShield
+    instancedShader: {fileID: 4800000, guid: ec5943f5796d543c4a5267b289b33443, type: 3}
+    modifiedDate: 01/02/2024 18:03:05.943
+    isOriginalInstanced: 0
+    extensionCode: 

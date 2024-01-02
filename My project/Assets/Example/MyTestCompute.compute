@@ -1,0 +1,19 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+
+    float2 uv = id.xy / float2(8, 8); // 根据线程ID计算UV坐标
+    Result[id.xy] = float4(uv, 0, 1); // 将计算结果写入输出纹理
+
+    //Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+
+    //Result[id.xy] = float4(id.x/8,id.y/8,id.z/1,1);
+}

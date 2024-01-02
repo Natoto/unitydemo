@@ -1,0 +1,34 @@
+#pragma kernel CSMain
+ 
+RWStructuredBuffer<float2> Float2s;
+RWTexture2D<float4> Result;
+int Width;
+int Height;
+ 
+float getDistance(float2 p,float2 c)
+{
+    float2 d = p-c;
+    return sqrt(d.x*d.x+d.y*d.y);
+}
+ 
+float getMaxDistance(float2 c)
+{
+    return sqrt(c.x*c.x+c.y*c.y);
+}
+ 
+float4 getTexRGBA(float2 p)
+{
+    float2 center = float2(Width/2,Height/2);
+    float dist = getDistance(p,center);
+    float mdist = getMaxDistance(center);
+    float4 col = float4(dist/mdist,dist/mdist,dist/mdist,1);
+    return col;
+}
+ 
+[numthreads(16,32,2)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    int index = id.y*Width+id.x;
+    float2 p = Float2s[index];
+    Result[id.xy] = getTexRGBA(p);
+}

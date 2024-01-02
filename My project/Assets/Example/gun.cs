@@ -14,6 +14,7 @@ public class gun : MonoBehaviour
     public int bulletCount = 30;
     public float bulletFlyMaxDistance = 50f;
     public float bulletScale = 1.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class gun : MonoBehaviour
         //}
 
         //2s后触发，每隔1s调用一次CreateBullet
-        InvokeRepeating("CreateBullet", 2, 0.1f);
+        InvokeRepeating("CreateBullet", 2, 0.2f);
          
     }
 
@@ -53,11 +54,11 @@ public class gun : MonoBehaviour
                 //Debug.Log("move " + bt.transform.position.ToString());
                 if (Vector3.Distance(bt.transform.position, targetTrans().position) > bulletFlyMaxDistance)
                 {
-                    //bullets.RemoveAt(idx);
-                    //Destroy(bt);
-                    //Debug.Log("remove ");
-                    bt.SetActive(false);
-                    bt.transform.position = Vector3.zero;
+                    bullets.RemoveAt(idx);
+                    Destroy(bt);
+                    Debug.Log("remove ");
+                    //bt.SetActive(false);
+                    //bt.transform.position = Vector3.zero;
                 }
             }
             
