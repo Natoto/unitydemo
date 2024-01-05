@@ -6,15 +6,15 @@
 	<dict>
 		<key>Resources/Data/Managed/Assembly-CSharp.dll</key>
 		<data>
-		SWDRYP9G7dGnzo1hbZRSINB2zVI=
+		w0r1BD0Ec5NCeG05ZqH0SLsPeZc=
 		</data>
 		<key>Resources/Data/Managed/GPUInstancer.CrowdAnimations.dll</key>
 		<data>
-		Tmy9sJUwlKE7FOp0i9MK62a9nn8=
+		YAaM9H57XFsavTXCgE/y4gA5ZyE=
 		</data>
 		<key>Resources/Data/Managed/GPUInstancer.dll</key>
 		<data>
-		Ee+p0XwJ+mM0Hjy4ftZ4kkeE4cc=
+		zR1bqJakmvUhxNw5y1SHSgKTmCQ=
 		</data>
 		<key>Resources/Data/Managed/GameFramework.dll</key>
 		<data>
@@ -103,6 +103,10 @@
 		<key>Resources/Data/Managed/System.dll</key>
 		<data>
 		4hWm7nabn9napAhBrmfRN06QCDU=
+		</data>
+		<key>Resources/Data/Managed/Unity.AI.Navigation.dll</key>
+		<data>
+		v/VMWEhjbhKkbipNNiwZV40rtYk=
 		</data>
 		<key>Resources/Data/Managed/Unity.Burst.Unsafe.dll</key>
 		<data>
@@ -462,7 +466,7 @@
 		</data>
 		<key>Resources/Data/ScriptingAssemblies.json</key>
 		<data>
-		ixMkuqFYUsEqE5vdAhI92I86v9U=
+		lH/VE7qFhNvN0z15Tqb44xmRoqo=
 		</data>
 		<key>Resources/Data/app.info</key>
 		<data>
@@ -470,15 +474,15 @@
 		</data>
 		<key>Resources/Data/boot.config</key>
 		<data>
-		/XADCZrg9B0NYoZ8MC9ckH91Fcs=
+		CNNfoLizM6AhNRrKfJ+8DZGRL0U=
 		</data>
 		<key>Resources/Data/globalgamemanagers</key>
 		<data>
-		cF0TBgbNTu1S6EGJxQ4iSJ9Lx7o=
+		GLCvX/qGNshBxr1JtGEe80IzMAw=
 		</data>
 		<key>Resources/Data/globalgamemanagers.assets</key>
 		<data>
-		XMBqWJ7bkaBAV6T4jQ8MTg2LzBc=
+		JmQH00dt6UYtfDLe0fz3Njmy9G4=
 		</data>
 		<key>Resources/Data/globalgamemanagers.assets.resS</key>
 		<data>
@@ -486,27 +490,27 @@
 		</data>
 		<key>Resources/Data/level0</key>
 		<data>
-		tjLTJOQosq1DBiosFtNIOeFb5aI=
+		uEvIdlOfE5P4SoKbzNnbizuKpkc=
 		</data>
 		<key>Resources/Data/level0.resS</key>
 		<data>
-		pPWeljttngaUasE2c7UnmOe/Tco=
+		tj/crL1b1gZoSXXViSIAniApT+o=
 		</data>
 		<key>Resources/Data/resources.assets</key>
 		<data>
-		72jlEi/k4UMNMoELVaHTDGyk1es=
+		xZjpi9LPelTqHWE5yWR3Xznvpgo=
 		</data>
 		<key>Resources/Data/resources.assets.resS</key>
 		<data>
-		3qPaHRQkdXFe7XSXT9zXEM6nCos=
+		3/vtz/IKcyS1hAVHpEfzAkaTuZY=
 		</data>
 		<key>Resources/Data/sharedassets0.assets</key>
 		<data>
-		g5Ryw7QDeQtZkjHxQbpVhaqy+xU=
+		6ZavjIsNIW+NRaFTHuLwhsE2GyQ=
 		</data>
 		<key>Resources/Data/sharedassets0.assets.resS</key>
 		<data>
-		AMQZ3fzcvpvIUQS5k+CDiX04j3w=
+		rXZSSDJfcn36mh+y+YJqo3J3cB8=
 		</data>
 		<key>Resources/DefaultPreferences.plist</key>
 		<data>
@@ -693,30 +697,30 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			UJaWzDyHfalePXXjsytRfTgJ/1M=
+			QFlmmkoCkyrEbHgrOWQnnHSju1Y=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"509696cc3c877da95e3d75e3b32b517d3809ff53" or cdhash H"c9710f9d8f08532e63e76126d3e5432caff2733e"</string>
+			<string>cdhash H"4059669a4a02932ac46c782b3964279c74a3bb56" or cdhash H"ce63c71dff55e46383dd7ae9b6b71c04664017ce"</string>
 		</dict>
 		<key>Resources/Data/Managed/Assembly-CSharp.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AlMtRgmoDpYckZLByAIrxBH/6UZr8t/hqGBoYGz5HTc=
+			eu3DvUMb8HTpBSNAh5BBFgimfhQo509B4STGHCeS16I=
 			</data>
 		</dict>
 		<key>Resources/Data/Managed/GPUInstancer.CrowdAnimations.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8+evchV+YnmpAnYdCCrXw9Fj2VUatZgZ8YpIMc/UAWE=
+			Ssnxp9eKu4a3Ytsqx6QjWIA8eed6ZqE2e/5aEAxk0j8=
 			</data>
 		</dict>
 		<key>Resources/Data/Managed/GPUInstancer.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Q1nYv3RHd5Oc0ZyNFKMOnPSC0E3hmw/bJOxGpYen4io=
+			odWU+Vrmp6tqVIxIoftIdhfmUEm5X4Ax71tF3ZsondM=
 			</data>
 		</dict>
 		<key>Resources/Data/Managed/GameFramework.dll</key>
@@ -871,6 +875,13 @@
 			<key>hash2</key>
 			<data>
 			N5btSL1DRoz1FX+qhwsACqHQB3Nuou5BMepYVusiiPA=
+			</data>
+		</dict>
+		<key>Resources/Data/Managed/Unity.AI.Navigation.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			c4arK7jGdDXs9Lrm5rlpemHcrsBefIAa8ZjQPrJaD/Q=
 			</data>
 		</dict>
 		<key>Resources/Data/Managed/Unity.Burst.Unsafe.dll</key>
@@ -1500,7 +1511,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			21SXU146ZJ7qstVaz5/WRInxRBpPUb4DRGJ4kzS3Ass=
+			/o4SYJQ6dDYOB6DLqVO9+3Jn0xM6MAzvPPAepcPnQWY=
 			</data>
 		</dict>
 		<key>Resources/Data/app.info</key>
@@ -1514,21 +1525,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mPulwDTNkN+y3+SBWRMWYC8tqozTzv7GCCATnfRmFRA=
+			bOBGz4frFxdaujqG8NzUt1hKzEU/9iU/VoHsW4/a8ok=
 			</data>
 		</dict>
 		<key>Resources/Data/globalgamemanagers</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KGUnWZqBUuyZMvJs9heXkLRxzAQA4YthH4gby3hpRSA=
+			9eDcKiDP98FshZSjXX1fhgli3EYiyeYmDUoVOk0KyJ0=
 			</data>
 		</dict>
 		<key>Resources/Data/globalgamemanagers.assets</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P+L5QgqkiAHGyfxL6ShZhiHbI7RvaWy9pzHFxmXKzVc=
+			KF9ql6SlH1fdjUAUj9IUiEDUoBLim773MFuOxlfOt8I=
 			</data>
 		</dict>
 		<key>Resources/Data/globalgamemanagers.assets.resS</key>
@@ -1542,42 +1553,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			u3ZB/I/eR/g6i7RXe1h8vnf0l8yYKhHwUOVVpHAilkk=
+			oMDbDRXX5DFgTGSrrEyhyDfuQozlbBcMoaufa+URZXg=
 			</data>
 		</dict>
 		<key>Resources/Data/level0.resS</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KpzlT8pfcwM9+Oyccz9pzSLIgp4KfOFdsR1z+sFGO1U=
+			GXqZC+gbW1ZO48ET8v3lGWDmgp5XpwpyZSKt6JvQ5Ck=
 			</data>
 		</dict>
 		<key>Resources/Data/resources.assets</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KAXfroWQ+GNN/N7GPmJXZlK6t16S/4GmTeii4vDqCMY=
+			INxkIyzjfkQU5Rh5PRw51rkFOVZMm89ibQSoqy5jfCA=
 			</data>
 		</dict>
 		<key>Resources/Data/resources.assets.resS</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a0uAngHzu8OMoVmMrAEuULM91t7QAkHrz6X3d0xoRK8=
+			SpHQHhrZbQEYbYauQiVdEeVeClUIMzP1csIVogMumAw=
 			</data>
 		</dict>
 		<key>Resources/Data/sharedassets0.assets</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2CHDUaubxyEBgx3OOjIE5rbY0ntAjGLF8CK3vDM5hMA=
+			vKUCp91G7B5Hwboln5SKGreiOk4Kl5QEXP1tEYoI58Q=
 			</data>
 		</dict>
 		<key>Resources/Data/sharedassets0.assets.resS</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OXigo+IkBqHKAsYEIRoi3OpIoQM9FE0xMS6m6WAy+nI=
+			bCakf8KKQtb3eS8DQURmtt0eRsZq4AHpZbqdUq694/Q=
 			</data>
 		</dict>
 		<key>Resources/DefaultPreferences.plist</key>

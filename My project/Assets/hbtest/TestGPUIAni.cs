@@ -25,7 +25,7 @@ public class TestGPUIAni : MonoBehaviour
     public string bufferName = "colorBuffer";
 
     // The List to hold the instances that will be generated.
-    private List<GPUInstancerPrefab> goList;
+    private List<GPUICrowdPrefab> goList;
     private NavMeshHit _navMeshHit;
     // Start is called before the first frame update
 
@@ -34,10 +34,13 @@ public class TestGPUIAni : MonoBehaviour
     private int _collumnCount = 30;
     private float _space = 1.5f;
 
+    private Ray _ray;
+    private RaycastHit _hit;
+    //private NavMeshHit _navMeshHit;
     void Start()
     {
         Debug.Log("fightv2 start ");
-        goList = new List<GPUInstancerPrefab>();
+        goList = new List<GPUICrowdPrefab>();
 
         // Define the buffer to the Prefab Manager.
         if (prefabManager != null && prefabManager.isActiveAndEnabled)
@@ -51,45 +54,7 @@ public class TestGPUIAni : MonoBehaviour
         crowdprototype.enableRuntimeModifications = true;
         crowdprototype.addRemoveInstancesAtRuntime = true;
         crowdprototype.extraBufferSize = 10000;
-
-        // Generate instances inside a radius.
-        //for (int i = 0; i < instances; i++)
-        //{
-        GameObject prefabObject = crowdprototype.prefabObject;
-        Vector3 pos = Vector3.zero;
-        Quaternion rotation = Quaternion.Euler(0, 180, 0) * crowdprototype.prefabObject.transform.rotation;
-        for (int r = 0; r < _rowCount; r++)
-        {
-            for (int c = 0; c < _collumnCount; c++)
-            {
-                pos.x = _space * r;
-                pos.z = _space * c;
-                pos.y = prefab.transform.position.y;
-
-                GPUInstancerPrefab prefabInstance = Instantiate(prefab, pos, rotation);
-                //GameObject prefabInstance = Instantiate(prefabObject, pos, rotation);
-
-                //GPUInstancerPrefab prefabInstance = Instantiate(prefab);
-                //prefabInstance.transform.localPosition = Random.insideUnitSphere * 20;
-                prefabInstance.transform.SetParent(transform);
-
-
-
-                NavMeshAgent agentai = prefabInstance.GetComponent<NavMeshAgent>(); // Store a reference to the NavMesh agent for later use.
-
-                if (agentai != null)
-                {
-                    agentai.updateRotation = true;
-                    agentai.updatePosition = true;
-
-                    agentai.SetDestination(GetRandomNavMeshPositionNearLocation(_hero.transform.position, 25));
-                 
-                }
-
-                goList.Add(prefabInstance.GetComponent<GPUICrowdPrefab>());
-            } 
-
-        }
+        createPrefabInstance();
 
         // Register the generated instances to the manager and initialize the manager.
         if (prefabManager != null && prefabManager.isActiveAndEnabled)
@@ -127,16 +92,47 @@ public class TestGPUIAni : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            AddInstances(); 
+            AddInstances();
             //GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, goList);
             Debug.Log("goList: " + goList.Count);
         }
-        // Update the variation buffer with a random set of colors every frame, thus changing instance colors per instance every frame.
-        //GPUInstancerAPI.UpdateVariation(prefabManager, goList[Random.Range(0, goList.Count)], bufferName, (Vector4)Random.ColorHSV());
+        else if (Input.GetMouseButtonDown(0)) {
+            GameObject _indicatorSphere = _hero;   
+            _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(_ray, out _hit, Mathf.Infinity))
+            {
+                Vector3 oldpos = _indicatorSphere.transform.position;
+                 _indicatorSphere.transform.position = new Vector3( _hit.point.x, oldpos.y, _hit.point.z);
+
+                StartCoroutine(updateDestination());
+            }
+            Debug.Log("move position: " + _hit.point + _indicatorSphere.name);
+        } 
 
         updateTipsText();
     }
 
+    private IEnumerator updateDestination() {
+
+
+        for (int idx = 0; idx < goList.Count; idx++)
+        {
+            GPUICrowdPrefab prefab = goList[idx];
+            NavMeshAgent agentai = prefab.GetComponent<NavMeshAgent>(); // Store a reference to the NavMesh agent for later use.
+
+            if (agentai != null)
+            {
+                agentai.updateRotation = true;
+                agentai.updatePosition = true;
+                agentai.isStopped = true;
+                agentai.velocity = Vector3.zero;
+                agentai.SetDestination(GetRandomNavMeshPositionNearLocation(_hero.transform.position, 30));
+                agentai.isStopped = false;
+                Debug.Log("update destination: " + _hit.point + " " + idx);
+            }
+        }
+        yield return new WaitForSeconds(0.001f);
+    }
     public void AddInstances()
     {
         GPUICrowdManager gpuiCrowdManager = prefabManager;
@@ -144,23 +140,26 @@ public class TestGPUIAni : MonoBehaviour
             return;
         if (_rowCount >= 100)
             return;
-        GameObject prefabObject = prefab.prefabPrototype.prefabObject; //gpuiCrowdManager.prototypeList[_selectedPrototypeIndex].prefabObject;
+        createPrefabInstance();
+    }
+
+    void createPrefabInstance() {
+
         Vector3 pos = Vector3.zero;
-        GPUICrowdPrefab prefabInstance;
-        Quaternion rotation = Quaternion.Euler(0, 180, 0) * prefabObject.transform.rotation;
-        for (int r = 0; r < _rowCount + 10; r++)
+        Quaternion rotation = Quaternion.Euler(0, 180, 0) * prefab.prefabPrototype.prefabObject.transform.rotation;
+        for (int r = 0; r < _rowCount; r++)
         {
-            for (int c = (r < _rowCount ? _collumnCount : 0); c < _collumnCount + 10; c++)
+            for (int c = 0; c < _collumnCount; c++)
             {
-                pos.x = _space * r;
+                float scale = prefab.prefabPrototype.prefabObject.transform.localScale.x;
+                
+                pos.x = _space * r * scale;
+                pos.z = _space * c * scale;
                 pos.y = prefab.transform.position.y;
-                pos.z = _space * c;
-                prefabInstance = Instantiate(prefab, pos, rotation);
-                //GameObject instanceGO = Instantiate(prefab, pos, rotation).gameObject;
-                //prefabInstance = instanceGO.GetComponent<GPUICrowdPrefab>(); // We reference the prototype by the GPUICrowdPrefab component that GPUI adds on the prefab...
+
+                GPUInstancerPrefab prefabInstance = Instantiate(prefab, pos, rotation);
                 prefabInstance.transform.SetParent(transform);
-                GPUInstancerAPI.AddPrefabInstance(gpuiCrowdManager, prefabInstance); // and add the instance to the manager using that reference using this API method.
-                goList.Add(prefabInstance);
+
 
 
                 NavMeshAgent agentai = prefabInstance.GetComponent<NavMeshAgent>(); // Store a reference to the NavMesh agent for later use.
@@ -169,21 +168,18 @@ public class TestGPUIAni : MonoBehaviour
                 {
                     agentai.updateRotation = true;
                     agentai.updatePosition = true;
-                     
-                    agentai.SetDestination(GetRandomNavMeshPositionNearLocation(_hero.transform.position, 25));
-                    prefabInstance.animatorRef.SetFloat("Speed", 0.5f);
+
+                    agentai.SetDestination(GetRandomNavMeshPositionNearLocation(_hero.transform.position, 30));
+
                 }
+
+                goList.Add(prefabInstance.GetComponent<GPUICrowdPrefab>());
             }
         }
-        _rowCount += 10;
-        _collumnCount += 10;
-        //textInstanceCount.text = _prototypeNameText + gpuiCrowdManager.runtimeDataList[_selectedPrototypeIndex].instanceCount;
     }
-
-
     private Vector3 GetRandomNavMeshPositionNearLocation(Vector3 origin, float range)
     {
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 40; i++)
         {
             Vector3 randomPoint = origin + Random.insideUnitSphere * range;
             if (NavMesh.SamplePosition(randomPoint, out _navMeshHit, range, NavMesh.AllAreas))
