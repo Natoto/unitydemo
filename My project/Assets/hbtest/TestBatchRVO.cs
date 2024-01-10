@@ -11,6 +11,7 @@ using Vector2 = RVO.Vector2;
 public class TestBatchRVO : MonoBehaviour
 {
 
+
     // The reference to the Prototype (the prefab itself can be assigned here since the GPUI Prototype component lives on the Prefab).
     public GPUICrowdPrefab prefab;
 
@@ -22,8 +23,10 @@ public class TestBatchRVO : MonoBehaviour
 
     public GameObject _tipsObject;
     // The count of instances that will be generated.
-    public int instances = 1000;
+    //public int instances = 1000;
 
+    public int _rowCount = 3;
+    public int _collumnCount = 3;
     // The name of the buffer. Must be the same with the StructuredBuffer in the shader that the Mateiral will use. See: "ColorVariationShader_GPUI.shader".
     public string bufferName = "colorBuffer";
 
@@ -33,10 +36,7 @@ public class TestBatchRVO : MonoBehaviour
     // Start is called before the first frame update
 
 
-    private int _rowCount = 30;
-    private int _collumnCount = 30;
     private float _space = 2.5f;
-
     private Ray _ray;
     private RaycastHit _hit;
     //private NavMeshHit _navMeshHit;
@@ -164,6 +164,9 @@ public class TestBatchRVO : MonoBehaviour
     void createPrefabInstance() {
         // prefab.prefabPrototype.prefabObject.transform.position; // 
         Vector3 pos = Vector3.zero;
+        pos = prefab.prefabPrototype.prefabObject.transform.position;
+
+        prefab.prefabPrototype.prefabObject.transform.gameObject.SetActive(false);
         Debug.Log("pos: " + pos);
         Quaternion rotation = Quaternion.Euler(0, 180, 0) * prefab.prefabPrototype.prefabObject.transform.rotation;
         for (int r = 0; r < _rowCount; r++)
@@ -171,14 +174,14 @@ public class TestBatchRVO : MonoBehaviour
             for (int c = 0; c < _collumnCount; c++)
             {
                 float scale = prefab.prefabPrototype.prefabObject.transform.localScale.x;
-                pos = prefab.prefabPrototype.prefabObject.transform.position;
+                pos = prefab.transform.position; //prefab.prefabPrototype.prefabObject.transform.position;
                 pos.x += _space * r * scale;
                 pos.z += _space * c * scale;
                 pos.y = prefab.transform.position.y;
-
+                 
                 GPUInstancerPrefab prefabInstance = Instantiate(prefab, pos, rotation);
-                prefabInstance.transform.SetParent(transform); 
-
+                prefabInstance.transform.SetParent(transform);
+                prefabInstance.transform.gameObject.SetActive(true);
                 //NavMeshAgent agentai = prefabInstance.GetComponent<NavMeshAgent>(); // Store a reference to the NavMesh agent for later use.
 
                 //if (agentai != null)
