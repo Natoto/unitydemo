@@ -14,7 +14,8 @@ public class TestGPUIAni : MonoBehaviour
 
     // The reference to the active Prefab Manager in the scene.
     public GPUICrowdManager prefabManager;
-     
+
+    public bool isEnermy;
     public GameObject _hero;
 
     public GameObject _tipsObject;
@@ -32,7 +33,7 @@ public class TestGPUIAni : MonoBehaviour
 
     private int _rowCount = 30;
     private int _collumnCount = 30;
-    private float _space = 1.5f;
+    private float _space = 2.5f;
 
     private Ray _ray;
     private RaycastHit _hit;
@@ -66,7 +67,18 @@ public class TestGPUIAni : MonoBehaviour
         prefabManager.enabled = true;
     }
 
+    void placeHero() {
+        GameObject _indicatorSphere = _hero;
+        _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(_ray, out _hit, Mathf.Infinity))
+        {
+            Vector3 oldpos = _indicatorSphere.transform.position;
+            _indicatorSphere.transform.position = new Vector3(_hit.point.x, oldpos.y, _hit.point.z);
 
+            StartCoroutine(updateDestination());
+        }
+        Debug.Log("move position: " + _hit.point + _indicatorSphere.name); 
+    }
     void updateTipsText()
     {
 
@@ -96,18 +108,13 @@ public class TestGPUIAni : MonoBehaviour
             //GPUInstancerAPI.RegisterPrefabInstanceList(prefabManager, goList);
             Debug.Log("goList: " + goList.Count);
         }
-        else if (Input.GetMouseButtonDown(0)) {
-            GameObject _indicatorSphere = _hero;   
-            _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(_ray, out _hit, Mathf.Infinity))
-            {
-                Vector3 oldpos = _indicatorSphere.transform.position;
-                 _indicatorSphere.transform.position = new Vector3( _hit.point.x, oldpos.y, _hit.point.z);
-
-                StartCoroutine(updateDestination());
-            }
-            Debug.Log("move position: " + _hit.point + _indicatorSphere.name);
-        } 
+        else if (isEnermy && Input.GetMouseButtonDown(0) ) {
+            placeHero();
+        }
+        else if (!isEnermy && Input.GetMouseButtonDown(1))
+        {
+            placeHero(); 
+        }
 
         updateTipsText();
     }
@@ -133,6 +140,7 @@ public class TestGPUIAni : MonoBehaviour
         }
         yield return new WaitForSeconds(0.001f);
     }
+
     public void AddInstances()
     {
         GPUICrowdManager gpuiCrowdManager = prefabManager;
@@ -144,31 +152,29 @@ public class TestGPUIAni : MonoBehaviour
     }
 
     void createPrefabInstance() {
-
+        // prefab.prefabPrototype.prefabObject.transform.position; // 
         Vector3 pos = Vector3.zero;
+        Debug.Log("pos: " + pos);
         Quaternion rotation = Quaternion.Euler(0, 180, 0) * prefab.prefabPrototype.prefabObject.transform.rotation;
         for (int r = 0; r < _rowCount; r++)
         {
             for (int c = 0; c < _collumnCount; c++)
             {
                 float scale = prefab.prefabPrototype.prefabObject.transform.localScale.x;
-                
-                pos.x = _space * r * scale;
-                pos.z = _space * c * scale;
+                pos = prefab.prefabPrototype.prefabObject.transform.position;
+                pos.x += _space * r * scale;
+                pos.z += _space * c * scale;
                 pos.y = prefab.transform.position.y;
 
                 GPUInstancerPrefab prefabInstance = Instantiate(prefab, pos, rotation);
-                prefabInstance.transform.SetParent(transform);
-
-
+                prefabInstance.transform.SetParent(transform); 
 
                 NavMeshAgent agentai = prefabInstance.GetComponent<NavMeshAgent>(); // Store a reference to the NavMesh agent for later use.
 
                 if (agentai != null)
                 {
                     agentai.updateRotation = true;
-                    agentai.updatePosition = true;
-
+                    agentai.updatePosition = true; 
                     agentai.SetDestination(GetRandomNavMeshPositionNearLocation(_hero.transform.position, 30));
 
                 }

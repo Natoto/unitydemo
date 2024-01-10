@@ -11,6 +11,7 @@ public class EntitiesAuthoring : MonoBehaviour
     public GameObject m_Prefab;
     public int m_Row;
     public int m_Col;
+    public float m_moveSpeed;
 }
 
 
@@ -27,7 +28,8 @@ class EntitiesAuthoringBaker : Baker<EntitiesAuthoring>
         {
             m_PrefabEntity = GetEntity(authoring.m_Prefab, TransformUsageFlags.Dynamic | TransformUsageFlags.Renderable),
             m_Row = authoring.m_Row,
-            m_Col = authoring.m_Col
+            m_Col = authoring.m_Col,
+            m_moveSpeed = authoring.m_moveSpeed,
         });
     }
 }
@@ -37,6 +39,7 @@ struct EntitiesComponentData : IComponentData
     public Entity m_PrefabEntity;
     public int m_Row;
     public int m_Col;
+    public float m_moveSpeed;
 }
 
 
@@ -50,19 +53,14 @@ partial struct SpawnEntitiesSystem : ISystem
     void OnCreate(ref SystemState state)
     {
         state.RequireForUpdate<EntitiesComponentData>();
+        //state.RequireForUpdate<MoveComponentData>();
     }
 
     void OnUpdate(ref SystemState state)
     {
         var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
         var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
-
-        //foreach (var data in SystemAPI.Query<EntitiesComponentData>())
-        //{
-        //    // 创建实体并设置属性
-        //    var entity = state.EntityManager.Instantiate(data.m_PrefabEntity);
-        //    ecb.SetComponent(entity, LocalTransform.FromPosition(new float3(0, 10, 0)));
-        //}
+        Debug.Log("SpawnEntitiesSystem update ");
         foreach (var data in SystemAPI.Query<EntitiesComponentData>())
         {
             var scale = 0.5f;
@@ -73,11 +71,11 @@ partial struct SpawnEntitiesSystem : ISystem
                 {
                     var entity = state.EntityManager.Instantiate(data.m_PrefabEntity);
                     ecb.SetComponent(entity, LocalTransform.FromPosition(new float3(j - halfSize.x, 0, i - halfSize.y)));
-                    //ecb.AddComponent<TargetMovePointData>(entity, new TargetMovePointData() { targetPoint = new float3(m_Random.NextFloat(m_RandomRange.x, m_RandomRange.y), 0, m_Random.NextFloat(m_RandomRange.z, m_RandomRange.w)) });
+                    ecb.AddComponent<MoveComponentData>(entity, new MoveComponentData() { moveSpeed = data.m_moveSpeed * UnityEngine.Random.Range(1, 30) });
+                    //ecb.AddComponent<TargetComponent>(entity, new TargetComponent() { });
                 }
             }
-            state.Enabled = false;
         }
-
+        state.Enabled = false;
     }
 }

@@ -66,3 +66,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.app
+Unity.Animation.Samples
+urp_BurstDebugInformation_DoNotShip
+Multiplayer-FPS-master
+com.nebukam.orca-master
+com.nebukam.job-assist-master

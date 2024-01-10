@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9d8aa170c766b479188accfb1f709f, type: 3}
   m_Name: Ellen_LOD_66294
   m_EditorClassIdentifier: 
-  prefabObject: {fileID: 3568986732492470400, guid: bc45d547ef5d0bf4a822623c9c3f822e,
-    type: 3}
+  prefabObject: {fileID: 3568986732492470400, guid: bc45d547ef5d0bf4a822623c9c3f822e, type: 3}
   isShadowCasting: 1
   useCustomShadowDistance: 0
   shadowDistance: 0
   shadowLODMap:
-  - 2
+  - 0
   - 4
   - 0
   - 0
-  - 2
+  - 1
   - 5
   - 0
   - 0
@@ -37,7 +36,7 @@ MonoBehaviour:
   useOriginalShaderForShadow: 1
   cullShadows: 0
   minDistance: 0
-  maxDistance: 500
+  maxDistance: 50000
   isFrustumCulling: 1
   isOcclusionCulling: 1
   frustumOffset: 0.2
@@ -68,17 +67,17 @@ MonoBehaviour:
     customBillboardMaterial: {fileID: 0}
     isBillboardShadowCasting: 0
     billboardFaceCamPos: 0
+    normalStrength: 1
   isBillboardDisabled: 0
   useGeneratedBillboard: 0
   checkedForBillboardExtensions: 0
-  autoUpdateTransformData: 0
+  autoUpdateTransformData: 1
   treeType: 0
-  warningText: 
   enableRuntimeModifications: 1
   startWithRigidBody: 0
   addRemoveInstancesAtRuntime: 1
   extraBufferSize: 10000
-  addRuntimeHandlerScript: 0
+  addRuntimeHandlerScript: 1
   hasRigidBody: 0
   rigidbodyData:
     useGravity: 0

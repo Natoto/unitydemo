@@ -37,6 +37,7 @@ namespace HelloCube.JobEntity
         void Execute(ref LocalTransform transform, ref PostTransformMatrix postTransform, in RotationSpeed speed)
         {
             transform = transform.RotateY(speed.RadiansPerSecond * deltaTime);
+            //postTransform.Value = float4x4.Translate(new float3( 2 * deltaTime , 0, 0));
             postTransform.Value = float4x4.Scale(1, math.sin(elapsedTime), 1);
         }
     }
