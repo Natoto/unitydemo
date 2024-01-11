@@ -187,21 +187,21 @@ MonoBehaviour:
     clipFrameCount: 38
     hasRootMotion: 1
     length: 0.6166667
-    isLoopDisabled: 1
+    isLoopDisabled: 0
     isClipLooping: 0
   - clipIndex: 25
     clipStartFrame: 2236
     clipFrameCount: 49
     hasRootMotion: 1
     length: 0.8
-    isLoopDisabled: 1
+    isLoopDisabled: 0
     isClipLooping: 0
   - clipIndex: 26
     clipStartFrame: 2285
     clipFrameCount: 65
     hasRootMotion: 1
     length: 1.0666667
-    isLoopDisabled: 1
+    isLoopDisabled: 0
     isClipLooping: 0
   - clipIndex: 27
     clipStartFrame: 2350

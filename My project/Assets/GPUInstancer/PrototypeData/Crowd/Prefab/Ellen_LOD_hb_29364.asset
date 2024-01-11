@@ -78,11 +78,11 @@ MonoBehaviour:
   addRemoveInstancesAtRuntime: 1
   extraBufferSize: 10000
   addRuntimeHandlerScript: 1
-  hasRigidBody: 0
+  hasRigidBody: 1
   rigidbodyData:
-    useGravity: 0
-    angularDrag: 0
-    mass: 0
+    useGravity: 1
+    angularDrag: 0.05
+    mass: 1
     constraints: 0
     drag: 0
     isKinematic: 0
