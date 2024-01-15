@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8333237313802879646}
   - component: {fileID: 2074927600203823479}
   - component: {fileID: 8029619764546902883}
-  - component: {fileID: 2495784634122483103}
+  - component: {fileID: 4491552256188862469}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -121.949585, y: 1.784, z: -34.35546}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2495784634122483103
+--- !u!114 &4491552256188862469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,4 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabd9c88866114a87ad855ec258b3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
   sid: -1
+  isMeetOthers: 0

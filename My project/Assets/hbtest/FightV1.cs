@@ -110,7 +110,7 @@ public class FightV1 : MonoBehaviour
         //Mesh mesh = monster.GetComponent<MeshFilter>().mesh;
         //Material material = monster.GetComponent<Renderer>().material;
         //material.enableInstancing = true;
-        //updateInstanceMatrix();
+        updateInstanceMatrix();
         //Graphics.DrawMeshInstanced(mesh, 0, material, matrices);
 
         updateTipsText();

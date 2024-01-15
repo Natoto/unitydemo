@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine; 
 
-namespace CombineMeshesxxx
+namespace CombineMeshes
 {
     ///<summary>
     ///注意：MergeMesh2、3只能针对于mesh上只有一个材质
